@@ -1,0 +1,17 @@
+.CalculatorDisplay {
+    width: 85%;
+    margin: 10px auto;
+    padding-top:10px;
+
+}
+
+.DisplayRow {
+    width: 100%;
+    margin:0;
+    padding:0;
+    outline:none;
+    border:0;
+    height: 2em;
+    background: #eee;
+    text-align: right;
+}
