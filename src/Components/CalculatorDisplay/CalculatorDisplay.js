@@ -6,7 +6,7 @@ import DisplayRow from './DisplayRow';
 import styles from './CalculatorDisplay.module.css';
 
 const CalculatorDisplay = ({expression,solution}) => {
-    console.log('calcDisplay',expression)
+    
     return (
     <div className={styles.CalculatorDisplay}>
     <DisplayRow key={'expr'} value={expression} />
