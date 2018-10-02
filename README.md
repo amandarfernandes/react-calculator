@@ -27,10 +27,11 @@ $ create-react-app --version
 ```
 ## Install
 ----------
+```
 $ git clone https://github.com/amandarfernandes/react-caluculator.git
 $ cd react-calculator
 $ npm install
-
+```
 ### Start & watch
 ```
 $ npm start
