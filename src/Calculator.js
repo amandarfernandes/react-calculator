@@ -5,7 +5,7 @@ import CalculatorDisplay from './Components/CalculatorDisplay/CalculatorDisplay'
 import ButtonRow from './Components/ButtonRow/ButtonRow';
 import styles from './Calculator.module.css';
 
-const operators = ['+','-','x','÷','%'];
+const operators = ['+','-','x','÷','%','*','/'];
 const calcRows = [
   [ 
     {label:"AC",type:"action"},
@@ -62,7 +62,7 @@ class Calculator extends Component {
     let {expression, solution, expressionEvaluated} = this.state;
     let splitUp = expression.match(/[^\d()]+|[\d.]+/g);  
 
-     switch (val) {
+    switch (val) {
       case '%':
         if (expression === "") break; 
         if (this.isOperator(expression.slice(-1))) {
@@ -72,6 +72,7 @@ class Calculator extends Component {
         splitUp[splitUp.length-1] = `${splitUp[splitUp.length-1]/100}`
         solution = splitUp[splitUp.length-1]; 
         expression = splitUp.join("");
+        expressionEvaluated = false;
         break;
       case '=':
         if (this.isOperator(expression.slice(-1)))
@@ -81,8 +82,6 @@ class Calculator extends Component {
         expressionEvaluated = true;
         break;
       case 'CE':
-        console.log('test');
-        console.log(splitUp);
         solution = '0';  
         splitUp.pop(); 
         expression = splitUp.join("");
@@ -107,8 +106,11 @@ class Calculator extends Component {
         let opr =  val === "x" ? "*": (val === "÷"? "/": val);
         expression += opr;
         solution = "0";
+        expressionEvaluated = false;
         break;
        default: 
+       //if (splitUp) 
+       //console.log(splitUp)
         if (expressionEvaluated) {
           expression = val;
           solution = val;
@@ -116,7 +118,11 @@ class Calculator extends Component {
           break;  
         }
         expression += val;
-        solution = val;
+        if (!splitUp || this.isOperator(splitUp[splitUp.length-1]))
+          solution = val;
+        else 
+          solution = splitUp[splitUp.length-1]+val;
+
         break;
      }
      this.setState({solution,expression, expressionEvaluated});
