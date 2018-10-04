@@ -15,7 +15,7 @@ importScripts("/react-calculator/workbox-v3.6.2/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/react-calculator/workbox-v3.6.2"});
 
 importScripts(
-  "/react-calculator/precache-manifest.02771984b6edadeb3c60db439d10a6ee.js"
+  "/react-calculator/precache-manifest.5365ff4a28c0ad87034ff57e2edbbe83.js"
 );
 
 workbox.clientsClaim();
