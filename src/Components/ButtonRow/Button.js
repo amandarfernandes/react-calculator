@@ -4,7 +4,7 @@ import styles from './ButtonRow.module.css';
 const Button = ({onClicked,label,type}) =>{
     
     return (
-      <input type="button" className={label === '='? styles.SpecialButton:null} onClick={onClicked} value={label} />
+      <input type="button" className={label === '0'? styles.SpecialButton:null} onClick={onClicked} value={label} />
     )
 }
 
